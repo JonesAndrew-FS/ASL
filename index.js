@@ -2,19 +2,22 @@ const express = require('express');
 const app = express();
 
 app.get('/', (request, response) => {
-    response.send('Home Page Get')
-})
+    response.send('Base page');
+});
 
-app.post('/', (request, response) => {
-    response.send('Home Page Post')
-})
+app.get('/products/all', (request, response) => {
+    let page = request.get('Page');
+    let sort = request.get('Sort');
+    let order = request.get('Order');
+    response.send('GET Products: ' + page + ', ' + sort + ', ' + order);
+});
 
 app.get('/products/:productId-:productName', (request, response) => {
-    response.send('Proudct name: ' + request.params.productName + ', Product ID: ' + request.params.productId)
-})
+    response.send('GET Products: ' + request.params.productId + ', ' + request.params.productName);
+});
 
-app.get('/products/:productName', (request, response) => {
-    response.send('Proudct name: ' + request.params.productName)
-})
+app.get('/products/:productId', (request, response) => {
+    response.send('GET Products: ' + request.params.productId);
+});
 
 app.listen(3000);
