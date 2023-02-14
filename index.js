@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser')
 const productRouter = require('./routes/Products');
+app.set('views', __dirname + '/templates');
+app.set('view engine', 'twig');
 
 // ASSIGNMENT 1.2: ADVANCED ROUTING
 
@@ -28,5 +30,13 @@ const productRouter = require('./routes/Products');
 
 app.use(bodyParser.urlencoded({extended: false}))
 app.use("/products", productRouter);
+
+//WEEK 2
+
+app.get('/', (req, res) => {
+    res.render("home", {name: 'World', 'users': [
+        {name: 'hi hi hi', email: 'asdfasdf'},
+    ]});
+});
 
 app.listen(3000);
