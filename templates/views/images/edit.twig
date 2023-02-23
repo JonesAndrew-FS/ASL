@@ -1,7 +1,5 @@
 {% extends 'layouts/base.twig' %}
 
 {% block main_content %}
-    <form method="POST">
-        <p>bro cmon</p>
-    </form>
+    {% include 'views/images/_form.twig' with { 'variants': variants } %}
 {% endblock %}

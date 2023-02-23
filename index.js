@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser')
 const productRouter = require('./routes/Products');
+const variantRouter = require('./routes/Variants');
+const imagesRouter = require('./routes/Images');
 app.set('views', __dirname + '/templates');
 app.set('view engine', 'twig');
 
@@ -30,13 +32,13 @@ app.set('view engine', 'twig');
 
 app.use(bodyParser.urlencoded({extended: false}))
 app.use("/products", productRouter);
+app.use("/variants", variantRouter);
+app.use("/images", imagesRouter);
 
 //WEEK 2
 
 app.get('/', (req, res) => {
-    res.render("home", {name: 'World', 'users': [
-        {name: 'hi hi hi', email: 'asdfasdf'},
-    ]});
+    res.render("views/home")
 });
 
 app.listen(3000);
