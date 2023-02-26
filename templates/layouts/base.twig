@@ -4,11 +4,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ASL Project</title>
+	{% block stylesheets %}
+	    <link rel="stylesheet" type="text/css" href="/public/style.css">
+	{% endblock %}
 </head>
 <body>
     {% include '../partials/_header.twig' %}
 
     {% block main_content %}
     {% endblock %}
+
 </body>
 </html>

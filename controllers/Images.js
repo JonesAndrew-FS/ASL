@@ -1,7 +1,9 @@
 const { Image, Variant } = require('../models');
 
 const index = async (req, res) => {
-    const images = await Image.findAll();
+    const images = await Image.findAll({
+        include: [ Variant ]
+    });
     res.render('views/images/index', { images });
     // res.json(images);
 };
@@ -22,15 +24,19 @@ const show = async (req, res) => {
     res.render('views/images/show', { image, variant })
 };
 
-const create = async (req, res) => {
+const create = async (req, res, next) => {
     const image = await Image.create(req.body);
+    req.imageId = image.id;
+    next();
     res.redirect('/images/' + image.id);
 };
 
-const update = async (req, res) => {
+const update = async (req, res, next) => {
     const image = await Image.update(req.body, {
         where: {id: req.params.id}
     });
+    req.imageId = req.params.id;
+    next();
     res.redirect('/images/' + req.params.id);
 };
 

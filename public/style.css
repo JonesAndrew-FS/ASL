@@ -1,0 +1,45 @@
+header{
+    background-color: rgb(155, 181, 206);
+    padding: 10px;
+}
+
+.nav{
+    display: flex;
+    flex-direction: row;
+}
+
+li{
+    margin-right: 40px;
+}
+
+.body{
+    display: flex;
+    flex-direction: column;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    outline: auto;
+}
+
+.price{
+    font-size: 20px;
+}
+
+body{
+	background-color:#569dbd;
+}
+
+*{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+h1{
+    font-size: 40px;
+}
+
+.main{
+    width: 40%;
+    height: 40%;
+}
